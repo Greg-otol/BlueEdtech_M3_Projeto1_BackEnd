@@ -1,0 +1,25 @@
+{
+  "name": "blueedtech_m3_projeto1_backend",
+  "version": "1.0.0",
+  "description": "First module 3 project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GregorioGrGeOtOl/BlueEdtech_M3_Projeto1_BackEnd.git"
+  },
+  "author": "Gregório Neto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GregorioGrGeOtOl/BlueEdtech_M3_Projeto1_BackEnd/issues"
+  },
+  "homepage": "https://github.com/GregorioGrGeOtOl/BlueEdtech_M3_Projeto1_BackEnd#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
