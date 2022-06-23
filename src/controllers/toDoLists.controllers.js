@@ -26,8 +26,9 @@ const updateToDoListController = (req, res) => {
 
 const deleteToDoListController = (req, res) => {
   const idParam = req.params.id;
+  const chosenToDoList = toDoListsService.findToDoListByIdService(idParam);
   toDoListsService.deleteToDoListservice(idParam);
-  res.send({ message: 'Tarefa removida com sucesso!' });
+  res.send({ message: `Tarefa '${chosenToDoList.name.toUpperCase()}' removida com sucesso!` });
 };
 
 module.exports = {
