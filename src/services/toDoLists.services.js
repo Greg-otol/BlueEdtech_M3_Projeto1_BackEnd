@@ -1,4 +1,4 @@
-const toDoLists = require('../models/databaseRam')
+const toDoLists = require("../models/databaseRam");
 
 const allToDoListsService = () => {
   return toDoLists;
@@ -16,7 +16,7 @@ const createToDoListservice = (newToDoList) => {
 };
 
 const updateToDoListservice = (id, toDoListEdited) => {
-  toDoListEdited['id'] = id;
+  toDoListEdited["id"] = id;
   const toDoListIndex = toDoLists.findIndex((toDoList) => toDoList.id == id);
   toDoLists[toDoListIndex] = toDoListEdited;
   return toDoListEdited;
@@ -32,5 +32,5 @@ module.exports = {
   findToDoListByIdService,
   createToDoListservice,
   updateToDoListservice,
-  deleteToDoListservice
+  deleteToDoListservice,
 };
