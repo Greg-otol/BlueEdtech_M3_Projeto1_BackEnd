@@ -20,7 +20,10 @@ const createToDoListController = (req, res) => {
   if (
     toDoList.name == "" ||
     toDoList.description == "" ||
-    toDoList.date == ""
+    toDoList.date == "" ||
+    toDoList.name == undefined ||
+    toDoList.description == undefined ||
+    toDoList.date == undefined
   ) {
     res.send({ message: "Preencha todos os campos!" });
   } else {
@@ -46,7 +49,10 @@ const updateToDoListController = (req, res) => {
   if (
     toDoListEdit.name == "" ||
     toDoListEdit.description == "" ||
-    toDoListEdit.date == ""
+    toDoListEdit.date == "" ||
+    toDoListEdit.name == undefined ||
+    toDoListEdit.description == undefined ||
+    toDoListEdit.date == undefined
   ) {
     res.send({ message: "Preencha todos os campos!" });
   } else {
