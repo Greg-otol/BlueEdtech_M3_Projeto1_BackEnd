@@ -39,14 +39,11 @@ const updateToDoListController = (req, res) => {
   const idParam = req.params.id;
   const chosenToDoList = toDoListsService.findToDoListByIdService(idParam);
   const toDoListEdit = req.body;
-  const updatedToDoList = toDoListsService.updateToDoListservice(
-    idParam,
-    toDoListEdit
-  );
+  
   if (chosenToDoList === undefined) {
     res.send({ message: "Tarefa não encontrada!" });
   }
-  if (
+  else if (
     toDoListEdit.name == "" ||
     toDoListEdit.description == "" ||
     toDoListEdit.date == "" ||
@@ -54,8 +51,12 @@ const updateToDoListController = (req, res) => {
     toDoListEdit.description == undefined ||
     toDoListEdit.date == undefined
   ) {
-    res.send({ message: "Preencha todos os campos!" });
+    return res.send({ message: "Preencha todos os campos!" });
   } else {
+    const updatedToDoList = toDoListsService.updateToDoListservice(
+      idParam,
+      toDoListEdit
+    );
     res.send({
       message: `A tarefa '${chosenToDoList.name.toUpperCase()}' foi editada para '${toDoListEdit.name.toUpperCase()}'!`,
       updatedToDoList,
