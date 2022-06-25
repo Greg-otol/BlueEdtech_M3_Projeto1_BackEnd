@@ -2,11 +2,7 @@ const toDoListsService = require("../services/toDoLists.services");
 
 const allToDoListsController = (req, res) => {
   const alltoDoLists = toDoListsService.allToDoListsService();
-  if (alltoDoLists.length == 0) {
-    res.send({ message: 'Nenhuma tarefa cadastrada!' });
-  } else {
     res.send(alltoDoLists);
-  }
 };
 
 const findToDoListByIdController = (req, res) => {
@@ -30,14 +26,14 @@ const createToDoListController = (req, res) => {
   } else {
     const newToDoList = toDoListsService.createToDoListservice(toDoList);
     res.status(201).send({
-      newToDoList,
-      message: `Tarefa '${toDoList.name}' criada com sucesso!`,
+      message: `Tarefa '${toDoList.name.toUpperCase()}' criada com sucesso!`,
+      newToDoList
     });
   }
 };
 
 const updateToDoListController = (req, res) => {
-  const idParam = +req.params.id;
+  const idParam = req.params.id;
   const chosenToDoList = toDoListsService.findToDoListByIdService(idParam);
   const toDoListEdit = req.body;
   const updatedToDoList = toDoListsService.updateToDoListservice(

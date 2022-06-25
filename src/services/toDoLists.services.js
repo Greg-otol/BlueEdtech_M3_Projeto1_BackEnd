@@ -1,7 +1,12 @@
 const toDoLists = require("../models/databaseRam");
+const { v4: uuidv4 } = require('uuid');
 
 const allToDoListsService = () => {
-  return toDoLists;
+  if (toDoLists.length == 0) {
+    return { message: 'Nenhuma tarefa cadastrada!' }
+  } else {
+    return toDoLists;
+  }
 };
 
 const findToDoListByIdService = (id) => {
@@ -9,7 +14,7 @@ const findToDoListByIdService = (id) => {
 };
 
 const createToDoListservice = (newToDoList) => {
-  const newId = toDoLists.length + 1;
+  const newId = uuidv4()
   newToDoList.id = newId;
   toDoLists.push(newToDoList);
   return newToDoList;
